@@ -7,8 +7,3 @@ if [[ "${INSTALL_REQUIREMENTS}" == "true"  ]]; then
   echo "Installing code requirements"
   pip install -r plugin_scripts/requirements.lock
 fi
-
-if [[ "${INSTALL_TEST_REQUIREMENTS}" == "true"  ]]; then
-  echo "Installing test requirements"
-  pip install -r requirements-test.txt
-fi
