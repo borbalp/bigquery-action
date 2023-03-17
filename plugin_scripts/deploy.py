@@ -30,11 +30,11 @@ def _deploy():
     dataset_schema_directory = os.environ.get("dataset_schema_directory")
     credentials = os.environ.get("credentials")
     gcp_project = os.environ.get("gcp_project")
+    dataset = os.environ.get("dataset")
 
     try:
         bq = BigQuery(credentials, gcp_project)
         for root, dirs, files in os.walk(dataset_schema_directory):
-            dataset = root.split("/").pop()
             for file in files:
                 with open(f"{root}/{file}", "r") as contents:
                     file_name_and_extension = file.split(".")
