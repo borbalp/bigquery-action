@@ -15,6 +15,9 @@ def _validate_env_variables():
 
     if not os.environ.get("dataset_schema_directory"):
         raise Exception("Missing `dataset_schema_directory` config")
+    
+    if not os.environ.get("dataset_name"):
+        raise Exception("Missing `dataset_name` config")
 
     if not os.environ.get("credentials"):
         raise Exception("Missing `credentials` config")
@@ -30,7 +33,7 @@ def _deploy():
     dataset_schema_directory = os.environ.get("dataset_schema_directory")
     credentials = os.environ.get("credentials")
     gcp_project = os.environ.get("gcp_project")
-    dataset = os.environ.get("dataset")
+    dataset = os.environ.get("dataset_name")
 
     try:
         bq = BigQuery(credentials, gcp_project)
